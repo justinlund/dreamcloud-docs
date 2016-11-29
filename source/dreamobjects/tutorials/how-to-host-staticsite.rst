@@ -99,8 +99,8 @@ a custom DNS record to the domain. Pick `CNAME` and insert
           `objects-website-us-west-1.dream.io` while the API endpoint
           for DreamObjects is `objects-us-west-1.dream.io`.
 
-After some minutes the DNS information should propagate and your site
-should be reachable in your browser at http://www.example.com.
+As soon as DNS information propagates, your site will be reachable in
+your browser at http://www.example.com.
 
 .. meta::
     :labels: s3cmd staticsite
