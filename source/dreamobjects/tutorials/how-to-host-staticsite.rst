@@ -28,6 +28,7 @@ The name of the bucket should be the same name of the CNAME. For
 example, if your website will be www.example.com,  name the bucket
 `www.example.com`.
 
+.. code-block:: console
 
     [user@localhost]$ s3cmd mb s3://www.example.com
     Bucket 's3://www.example.com/' created
@@ -39,6 +40,8 @@ Once the bucket has been created, use s3cmd to configure the bucket as
 a website. The option `ws-create` takes many arguments but for this
 example we'll configure the default index page.
 
+.. code-block:: console
+
     [user@localhost]$ s3cmd ws-create --ws-index index.html s3://www.example.com
     Bucket 's3://www.example.com/': website configuration created.
 
@@ -48,6 +51,8 @@ argument for `ws-create` command. Read the full `S3cmd man page
 
 Check the results of the command with `ws-info`, it should look like
 the example below:
+
+.. code-block:: console
 
     [user@localhost]$ s3cmd ws-info s3://www.example.com
     Bucket s3://example.com/: Website configuration
@@ -63,6 +68,8 @@ the HTML files, JavaScript, CSS, images and any videos you may have in
 your static website. From the root folder of your website, start
 uploading with the `sync` command, setting the files public `-P` and
 recursively `-r`.
+
+.. code-block:: console
 
      [user@localhost]$ s3cmd -Pr sync . s3://www.example.com
 
