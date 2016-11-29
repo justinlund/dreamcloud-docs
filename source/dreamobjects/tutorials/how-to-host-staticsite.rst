@@ -55,7 +55,7 @@ the example below:
 .. code-block:: console
 
     [user@localhost]$ s3cmd ws-info s3://www.example.com
-    Bucket s3://example.com/: Website configuration
+    Bucket s3://www.example.com/: Website configuration
     Website endpoint: http://www.example.com.objects-website-us-west-1.dream.io/
     Index document:   index.html
     Error document:   None
