@@ -60,6 +60,11 @@ the example below:
     Index document:   index.html
     Error document:   None
 
+.. note:: s3cmd configuration needs `website_endpoint` set to output
+          this value correctly. If you use the default, things will
+          still work, but the printed output here will be
+          `http://www.example.com.s3-website-us-east-1.amazonaws.com/`
+
 Set the policy for the bucket and upload the static files
 ---------------------------------------------------------
 
@@ -89,6 +94,10 @@ www.example.com. Go to the `Panel -> Domains
 <https://panel.dreamhost.com/index.cgi?tree=domain.manage&>`_ and add
 a custom DNS record to the domain. Pick `CNAME` and insert
 `www.example.com.objects-website-us-west-1.dream.io`.
+
+.. note:: Please note that the endpoint for website is
+          `objects-website-us-west-1.dream.io` while the API endpoint
+          for DreamObjects is `objects-us-west-1.dream.io`.
 
 After some minutes the DNS information should propagate and your site
 should be reachable in your browser at http://www.example.com.
