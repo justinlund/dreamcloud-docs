@@ -24,8 +24,8 @@ static website itself.
 Creating the bucket
 -------------------
 
-The name of the bucket should be the same name of the CNAME. For
-example, if your website is www.example.com,  name the bucket
+The name of the bucket must be the same name of the DNS entry. For
+example, if your website is www.example.com, name the bucket
 `www.example.com`:
 
 .. code-block:: console
@@ -86,8 +86,8 @@ should see the content of your index.html file.
 
 .. note:: Support for HTTPS will be added soon.
 
-Creating the CNAME
-------------------
+Creating the DNS entry
+----------------------
 
 As a last step, you can create a more attractive name for your site,
 such as www.example.com. Go to the `Panel -> Domains
