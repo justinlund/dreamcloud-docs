@@ -51,7 +51,7 @@ functional features:
 +------------------------------+---------------+------------------------------+
 | Bucket Request Payment       | Not Supported |                              |
 +------------------------------+---------------+------------------------------+
-| Bucket Website               | Not Supported |                              |
+| Bucket Website               | Supported     |                              |
 +------------------------------+---------------+------------------------------+
 | Policy (Buckets, Objects)    | Not Supported | ACLs are Supported           |
 +------------------------------+---------------+------------------------------+
@@ -105,7 +105,7 @@ Bucket and Host Name
 
 There are two different modes of accessing the buckets. The first
 (preferred) method identifies the bucket as the top-level directory in
-the URI.
+the URI:
 
 ::
 
@@ -113,14 +113,16 @@ the URI.
    Host: objects-us-west-1.dream.io
 
 The second method identifies the bucket via a virtual bucket host
-name. For example:::
+name. For example:
+
+::
 
   GET / HTTP/1.1
   Host: mybucket.objects-us-west-1.dream.io
 
 .. note::
 
-   We prefer the first method, because the second method requires
+   DreamHost prefers the first method, because the second method requires
    expensive domain certification and DNS wild cards.
 
 
@@ -224,7 +226,7 @@ Authentication
 
 Authenticating a request requires including an access key and a Hash-based
 Message Authentication Code (HMAC) in the request before it is sent to the
-RGW server. RGW uses an S3-compatible authentication approach.
+RGW server. RGW uses an S3-compatible authentication approach:
 
 ::
 
@@ -241,7 +243,7 @@ In the foregoing example, replace ``{access-key}`` with the value for your acces
 key ID followed by a colon (``:``). Replace ``{hash-of-header-and-secret}`` with
 a hash of the header string and the secret corresponding to the access key ID.
 
-To generate the hash of the header string and secret, you must:
+To generate the hash of the header string and secret:
 
 #. Get the value of the header string.
 #. Normalize the request header string into canonical form.
@@ -266,8 +268,8 @@ Replace the ``{hash-of-header-and-secret}`` with the base-64 encoded HMAC string
 .. _RFC 2104: http://www.ietf.org/rfc/rfc2104.txt
 .. _HMAC: http://en.wikipedia.org/wiki/HMAC
 
-Understand DreamObjects S3-compatible Access Control List
----------------------------------------------------------
+Understanding DreamObjects S3-compatible Access Control List
+------------------------------------------------------------
 
 DreamObjects supports S3-compatible Access Control List (ACL)
 functionality. An ACL is a list of access grants that specify which
@@ -291,8 +293,8 @@ object:
 
 .. _Service_Operations_S3:
 
-Understand DreamObjects S3-compatible Service Operations
---------------------------------------------------------
+Understanding DreamObjects S3-compatible Service Operations
+-----------------------------------------------------------
 
 List Buckets
 ~~~~~~~~~~~~
@@ -336,8 +338,8 @@ Response Entities
 
 .. _Bucket_Operations_S3:
 
-Understand DreamObjects S3-compatible Bucket Operations
--------------------------------------------------------
+Understanding DreamObjects S3-compatible Bucket Operations
+----------------------------------------------------------
 
 PUT Bucket
 ~~~~~~~~~~
@@ -345,12 +347,12 @@ PUT Bucket
 Creates a new bucket. To create a bucket, you must have a user ID and a valid AWS Access Key ID to authenticate requests. You may not
 create buckets as an anonymous user.
 
-.. note:: We do not support request entities for ``PUT /{bucket}`` in this release.
+.. note:: DreamHost does not support request entities for ``PUT /{bucket}`` in this release.
 
 Constraints
 ^^^^^^^^^^^
 
-In general, bucket names should follow domain name constraints.
+In general, bucket names should follow domain name constraints:
 
 - Bucket names must be unique.
 - Bucket names must begin and end with a lowercase letter.
@@ -381,9 +383,9 @@ Parameters
 HTTP Response
 ^^^^^^^^^^^^^
 
-If the bucket name is unique, within constraints and unused, the operation will succeed.
-If a bucket with the same name already exists and the user is the bucket owner, the operation will succeed.
-If the bucket name is already in use, the operation will fail.
+If the bucket name is unique, within constraints and unused, the operation succeeds.
+If a bucket with the same name already exists and the user is the bucket owner, the operation succeeds.
+If the bucket name is already in use, the operation fails.
 
 +---------------+-----------------------+----------------------------------------------------------+
 | HTTP Status   | Status Code           | Description                                              |
@@ -463,7 +465,7 @@ Bucket Response Entities
 +========================+===========+==================================================================================+
 | ``ListBucketResult``   | Entity    | The container for the list of objects.                                           |
 +------------------------+-----------+----------------------------------------------------------------------------------+
-| ``Name``               | String    | The name of the bucket whose contents will be returned.                          |
+| ``Name``               | String    | The name of the bucket whose contents are returned.                              |
 +------------------------+-----------+----------------------------------------------------------------------------------+
 | ``Prefix``             | String    | A prefix for the object keys.                                                    |
 +------------------------+-----------+----------------------------------------------------------------------------------+
@@ -471,11 +473,11 @@ Bucket Response Entities
 +------------------------+-----------+----------------------------------------------------------------------------------+
 | ``MaxKeys``            | Integer   | The maximum number of keys returned.                                             |
 +------------------------+-----------+----------------------------------------------------------------------------------+
-| ``Delimiter``          | String    | If set, objects with the same prefix will appear in the ``CommonPrefixes`` list. |
+| ``Delimiter``          | String    | If set, objects with the same prefix appear in the ``CommonPrefixes`` list.      |
 +------------------------+-----------+----------------------------------------------------------------------------------+
-| ``IsTruncated``        | Boolean   | If ``true``, only a subset of the bucket's contents were returned.               |
+| ``IsTruncated``        | Boolean   | If ``true``, only a subset of the bucket's contents are returned.                |
 +------------------------+-----------+----------------------------------------------------------------------------------+
-| ``CommonPrefixes``     | Container | If multiple objects contain the same prefix, they will appear in this list.      |
+| ``CommonPrefixes``     | Container | If multiple objects contain the same prefix, they appear in this list.           |
 +------------------------+-----------+----------------------------------------------------------------------------------+
 
 Object Response Entities
@@ -503,8 +505,8 @@ The ``ListBucketResult`` contains objects, where each object is within a ``Conte
 Get Bucket ACL
 ~~~~~~~~~~~~~~
 
-Retrieves the bucket access control list. The user needs to be the bucket
-owner or to have been granted ``READ_ACP`` permission on the bucket.
+Retrieves the bucket access control list. The user must be the bucket
+owner or be granted ``READ_ACP`` permission on the bucket.
 
 Syntax
 ^^^^^^
@@ -594,7 +596,7 @@ Syntax
 Parameters
 ^^^^^^^^^^
 
-You may specify parameters for ``GET /{bucket}?uploads``, but none of them are required.
+You can specify parameters for ``GET /{bucket}?uploads``, but none of them are required.
 
 +------------------------+-----------+--------------------------------------------------------------------------------------+
 | Name                   | Type      | Description                                                                          |
@@ -624,7 +626,7 @@ Response Entities
 +-----------------------------------------+-------------+----------------------------------------------------------------------------------------------------------+
 | ``ListMultipartUploadsResult.Prefix``   | String      | The prefix specified by the ``prefix`` request parameter (if any).                                       |
 +-----------------------------------------+-------------+----------------------------------------------------------------------------------------------------------+
-| ``Bucket``                              | String      | The bucket that will receive the bucket contents.                                                        |
+| ``Bucket``                              | String      | The bucket that receives the bucket contents.                                                          |
 +-----------------------------------------+-------------+----------------------------------------------------------------------------------------------------------+
 | ``KeyMarker``                           | String      | The key marker specified by the ``key-marker`` request parameter (if any).                               |
 +-----------------------------------------+-------------+----------------------------------------------------------------------------------------------------------+
@@ -636,9 +638,9 @@ Response Entities
 +-----------------------------------------+-------------+----------------------------------------------------------------------------------------------------------+
 | ``MaxUploads``                          | Integer     | The max uploads specified by the ``max-uploads`` request parameter.                                      |
 +-----------------------------------------+-------------+----------------------------------------------------------------------------------------------------------+
-| ``Delimiter``                           | String      | If set, objects with the same prefix will appear in the ``CommonPrefixes`` list.                         |
+| ``Delimiter``                           | String      | If set, objects with the same prefix appear in the ``CommonPrefixes`` list.                            |
 +-----------------------------------------+-------------+----------------------------------------------------------------------------------------------------------+
-| ``IsTruncated``                         | Boolean     | If ``true``, only a subset of the bucket's upload contents were returned.                                |
+| ``IsTruncated``                         | Boolean     | If ``true``, only a subset of the bucket's upload contents are returned.                                |
 +-----------------------------------------+-------------+----------------------------------------------------------------------------------------------------------+
 | ``Upload``                              | Container   | A container for ``Key``, ``UploadId``, ``InitiatorOwner``, ``StorageClass``, and ``Initiated`` elements. |
 +-----------------------------------------+-------------+----------------------------------------------------------------------------------------------------------+
@@ -658,7 +660,7 @@ Response Entities
 +-----------------------------------------+-------------+----------------------------------------------------------------------------------------------------------+
 | ``Initiated``                           | Date        | The date and time the user initiated the upload.                                                         |
 +-----------------------------------------+-------------+----------------------------------------------------------------------------------------------------------+
-| ``CommonPrefixes``                      | Container   | If multiple objects contain the same prefix, they will appear in this list.                              |
+| ``CommonPrefixes``                      | Container   | If multiple objects contain the same prefix, they appear in this list.                                  |
 +-----------------------------------------+-------------+----------------------------------------------------------------------------------------------------------+
 | ``CommonPrefixes.Prefix``               | String      | The substring of the key after the prefix as defined by the ``prefix`` request parameter.                |
 +-----------------------------------------+-------------+----------------------------------------------------------------------------------------------------------+
@@ -794,14 +796,14 @@ Response Headers
 +-------------------+--------------------------------------------------------------------------------------------+
 | Name              | Description                                                                                |
 +===================+============================================================================================+
-| **Content-Range** | Data range, will only be returned if the range header field was specified in the request   |
+| **Content-Range** | Data range. Returned only if the range header field was specified in the request.          |
 +-------------------+--------------------------------------------------------------------------------------------+
 
 Get Object Info
 ~~~~~~~~~~~~~~~
 
-Returns information about object. This request will return the same
-header information as with the Get Object request, but will include
+Returns information about object. This request returns the same
+header information as with the Get Object request, but includes
 the metadata only, not the object data payload.
 
 Syntax
@@ -932,7 +934,7 @@ Response Entities
 +=========================================+=============+==========================================================================================================+
 | ``InitiatedMultipartUploadsResult``     | Container   | A container for the results.                                                                             |
 +-----------------------------------------+-------------+----------------------------------------------------------------------------------------------------------+
-| ``Bucket``                              | String      | The bucket that will receive the object contents.                                                        |
+| ``Bucket``                              | String      | The bucket that receives the object contents.                                                          |
 +-----------------------------------------+-------------+----------------------------------------------------------------------------------------------------------+
 | ``Key``                                 | String      | The key specified by the ``key`` request parameter (if any).                                             |
 +-----------------------------------------+-------------+----------------------------------------------------------------------------------------------------------+
@@ -979,7 +981,7 @@ Response Entities
 +=========================================+=============+==========================================================================================================+
 | ``InitiatedMultipartUploadsResult``     | Container   | A container for the results.                                                                             |
 +-----------------------------------------+-------------+----------------------------------------------------------------------------------------------------------+
-| ``Bucket``                              | String      | The bucket that will receive the object contents.                                                        |
+| ``Bucket``                              | String      | The bucket that receives the object contents.                                                          |
 +-----------------------------------------+-------------+----------------------------------------------------------------------------------------------------------+
 | ``Key``                                 | String      | The key specified by the ``key`` request parameter (if any).                                             |
 +-----------------------------------------+-------------+----------------------------------------------------------------------------------------------------------+
@@ -1001,7 +1003,7 @@ Response Entities
 +-----------------------------------------+-------------+----------------------------------------------------------------------------------------------------------+
 | ``MaxParts``                            | Integer     | The max parts allowed in the response as specified by the ``max-parts`` request parameter.               |
 +-----------------------------------------+-------------+----------------------------------------------------------------------------------------------------------+
-| ``IsTruncated``                         | Boolean     | If ``true``, only a subset of the object's upload contents were returned.                                |
+| ``IsTruncated``                         | Boolean     | If ``true``, only a subset of the object's upload contents are returned.                                  |
 +-----------------------------------------+-------------+----------------------------------------------------------------------------------------------------------+
 | ``Part``                                | Container   | A container for ``Key``, ``Part``, ``InitiatorOwner``, ``StorageClass``, and ``Initiated`` elements.     |
 +-----------------------------------------+-------------+----------------------------------------------------------------------------------------------------------+
