@@ -2,14 +2,14 @@
 How to create static websites with DreamObjects
 ===============================================
 
-You can configure a DreamObjects bucket to serve static web pages created
-with HTML, CSS, and JavaScript. This allows you to host an entire website that
-is simple to build and very inexpensive.
+You can configure a DreamObjects bucket to serve static web pages
+created with HTML, CSS, and JavaScript. This allows you to host an
+entire website that is simple to build and very inexpensive.
 
-Static web pages are usually HTML pages that are served in their stored form,
-instead of being built dynamically by a web application such as
-WordPress, Django, and similar ones. There are a lot of tools that
-help generate and maintain static web pages: the site `StaticGen
+Static web pages are usually HTML pages that are served in their
+stored form, instead of being built dynamically by a web application
+such as WordPress, Django, and similar ones. There are a lot of tools
+that help generate and maintain static web pages: the site `StaticGen
 <https://www.staticgen.com/>`_ maintains a list of open source static
 site generators that you can use to create the files to upload in your
 new DreamObjects website bucket.
@@ -36,8 +36,8 @@ example, if your website is www.example.com,  name the bucket
 Creating the website for the bucket
 -----------------------------------
 
-Once the bucket is created, use s3cmd to configure the bucket as
-a website. The option `ws-create` takes many arguments but for this
+Once the bucket is created, use s3cmd to configure the bucket as a
+website. The option `ws-create` takes many arguments but for this
 example the default index page is configured:
 
 .. code-block:: console
@@ -69,17 +69,17 @@ Setting the policy for the bucket and upload the static files
 -------------------------------------------------------------
 
 At this point, the bucket is ready and all you need to do is upload
-the HTML files, JavaScript, CSS, images, and any videos you may have in
-your static website. From the root folder of your website, upload these
-files with the `sync` command, setting the files public `-P` and
+the HTML files, JavaScript, CSS, images, and any videos you may have
+in your static website. From the root folder of your website, upload
+these files with the `sync` command, setting the files public `-P` and
 recursively `-r`.
 
 .. code-block:: console
 
      [user@localhost]$ s3cmd -Pr sync . s3://www.example.com
 
-This process takes awhile, depending on the size of your site and
-the upload bandwidth. Once it completes, visit the website endpoint with
+This process takes awhile, depending on the size of your site and the
+upload bandwidth. Once it completes, visit the website endpoint with
 your browser (in the example,
 http://www.example.com.objects-website-us-west-1.dream.io/). You
 should see the content of your index.html file.
@@ -89,8 +89,8 @@ should see the content of your index.html file.
 Creating the CNAME
 ------------------
 
-As a last step, you can create a more attractive name for your site, such as
-www.example.com. Go to the `Panel -> Domains
+As a last step, you can create a more attractive name for your site,
+such as www.example.com. Go to the `Panel -> Domains
 <https://panel.dreamhost.com/index.cgi?tree=domain.manage&>`_ and add
 a custom DNS record to the domain. Pick `CNAME` and insert
 `www.example.com.objects-website-us-west-1.dream.io`.
@@ -99,8 +99,8 @@ a custom DNS record to the domain. Pick `CNAME` and insert
           `objects-website-us-west-1.dream.io` while the API endpoint
           for DreamObjects is `objects-us-west-1.dream.io`.
 
-As soon as DNS information propagates, your site is reachable in
-your browser at http://www.example.com.
+As soon as DNS information propagates, your site is reachable in your
+browser at http://www.example.com.
 
 .. meta::
     :labels: s3cmd staticsite
