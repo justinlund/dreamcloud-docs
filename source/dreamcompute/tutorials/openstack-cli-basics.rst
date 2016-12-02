@@ -1,11 +1,11 @@
-====================================
-OpenStack Command Line Client Basics
-====================================
+==================================================
+Getting started with OpenStack command line client
+==================================================
 
 Installation
 ~~~~~~~~~~~~
 
-The OpenStack Command Line Client can be installed in several ways, the best
+The OpenStack command line client can be installed in several ways, the best
 way is to use `pip` in a virtualenv using the following:
 
 .. code-block:: console
@@ -34,7 +34,7 @@ In order to use the OpenRC file, run:
 Basic commands
 ~~~~~~~~~~~~~~
 
-The OpenStack Command Line Client combines the functionality of all of the
+The OpenStack command line client combines the functionality of all of the
 other OpenStack service specific command line clients, such as the nova client
 and the cinder client. Here are some basic commands that are useful:
 
@@ -85,7 +85,7 @@ This lists the volumes you have created.
 
 .. code-block:: console
 
-    (venv)calebb@raynor:~$ openstack server create --key-name my_key --image \
+    (venv)[user@localhost]$ openstack server create --key-name my_key --image \
         Ubuntu-16.04 --flavor 100 awesome_server
     +--------------------------------------+-----------------------------------------------------+
     | Field                                | Value                                               |
