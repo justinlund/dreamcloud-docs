@@ -85,8 +85,8 @@ This lists the volumes you have created.
 
 .. code-block:: console
 
-    (venv)[user@localhost]$ openstack server create --key-name my_key --image \
-        Ubuntu-16.04 --flavor 100 awesome_server
+    [user@localhost]$ openstack server create --key-name my_key --image \
+    Ubuntu-16.04 --flavor 100 awesome_server
     +--------------------------------------+-----------------------------------------------------+
     | Field                                | Value                                               |
     +--------------------------------------+-----------------------------------------------------+
