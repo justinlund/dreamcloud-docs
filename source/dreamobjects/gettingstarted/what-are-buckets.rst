@@ -35,9 +35,9 @@ Creating a Bucket
 .. note::
 
     Bucket names must include at least 3 characters and can only contain
-    lowercase characters, numbers, dashes, dots, and underscores. Certain
-    symbols and symbol combinations such as dashes or double-dots will break
-    DNS on your bucket name, reducing the bucket's functionality, and are not
+    lowercase characters, numbers, dashes, dots, and underscores. Also, while certain
+    symbols and symbol combinations such as dashes or double-dots are valid, they **will** break
+    DNS on your bucket name (reducing the bucket's functionality) and are not
     recommended.
 
 Selecting a permission setting for your bucket
@@ -89,6 +89,12 @@ Options for editing a Bucket are limited, but you can:
 Deleting a Bucket
 -----------------
 
+.. important::
+
+   It is not possible to delete a bucket that contains any objects. 
+   Also, the bucket deletion operation is non-reversible, so make sure
+   you have backed up all data in the bucket before deleting it. 
+
 1. Navigate to the (`Panel > ‘Cloud Services’ > ‘DreamObjects’
    <https://panel.dreamhost.com/index.cgi?tree=cloud.objects&>`_) page in your
    DreamHost panel.
@@ -107,10 +113,6 @@ Deleting a Bucket
 
 5. Click the **Remove** button to delete the bucket.
 
-.. important::
-
-    Deleting a bucket deletes all objects within the bucket. Make sure
-    you have backed up all data in the bucket before deleting.
 
 Understanding the Migrations Page
 ---------------------------------
