@@ -91,9 +91,9 @@ Deleting a Bucket
 
 .. important::
 
-   It is not possible to delete a bucket that contains any objects. 
+   It is not possible to delete a bucket that contains any objects.
    Also, the bucket deletion operation is non-reversible, so make sure
-   you have backed up all data in the bucket before deleting it. 
+   you have backed up all data in the bucket before deleting it.
 
 1. Navigate to the (`Panel > ‘Cloud Services’ > ‘DreamObjects’
    <https://panel.dreamhost.com/index.cgi?tree=cloud.objects&>`_) page in your
