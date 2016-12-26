@@ -69,7 +69,7 @@ installed LAMP stack.
 
 .. _PHP Configuration Files: 215231208-How-to-Configure-PHP-on-DreamCompute-running-Fedora-or-Centos
 
-.. _MariaDB Configuration: 217471877-How-to-Configure-MariaDB-on-DreamCompute-running-Fedora-or-Centos
+.. _MariaDB Configuration: 217880038-How-to-Configure-MariaDB-on-DreamCompute-running-Fedora-or-Centos
 
 .. meta::
     :labels: php apache MariaDB mysql fedora centos nova
