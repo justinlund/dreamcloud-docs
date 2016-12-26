@@ -24,7 +24,7 @@ Pick a new password to access US-East 2:
 Confirm activation and you're done. You can use the new password to
 login into the `US-East 2 dashboard`_.
 
-.. _how your bill will change: /articles/217442428
+.. _how your bill will change: 217442428-How-Will-My-DreamCompute-Bill-Change-
 .. _DreamHost Control Panel: https://panel.dreamhost.com/index.cgi?tree=cloud.compute&
 .. _US-East 2 dashboard: https://iad2.dreamcompute.com
 
