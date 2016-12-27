@@ -10,7 +10,7 @@ Introduction
     This article assumes you are running Linux or Mac OS
 
 In this article, you learn to deploy a simple web application on
-`DreamCompute <http://dreamhost.com/cloud/compute/>`_, a public cloud powered
+`DreamCompute <https://www.dreamhost.com/cloud/computing/>`_, a public cloud powered
 by OpenStack,
 using the popular automation tool, `Ansible <http://www.ansible.com>`_. To get
 started:
