@@ -92,7 +92,7 @@ file:
 * ``stack_size`` is the variable that defines how many servers to use for your
   site. The number of webservers you have is stack_size-2.
 * ``flavor_name`` is the flavor of server to use for the servers, change this
-  to whatver server flavor you want.
+  to whatever server flavor you want.
 * ``volume_size`` is the size of the volume to put your MySQL database on. A
   bigger site with more data will need a bigger volume.
 * ``wp_theme`` is the WordPress theme to use with the site.
