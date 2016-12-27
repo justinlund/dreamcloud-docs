@@ -154,7 +154,7 @@ steps below.
 
     .. figure:: images/how-to-enable-private-networking/network-13.png
 
-        The floating IP address assigned appeasr on the Compute ->
+        The floating IP address assigned appears on the Compute ->
         Instances page in the "IP Address" column.
 
 .. _`DHCP`: #dhcp
