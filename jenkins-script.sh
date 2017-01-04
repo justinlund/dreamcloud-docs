@@ -57,7 +57,25 @@ files="`git diff --name-only $GIT_PREVIOUS_SUCCESSFUL_COMMIT $GIT_COMMIT`"
 for file in $files ; do
     if `echo "$file" | egrep -i '\.png$|\.jpg$' > /dev/null` ; then
         file_name="`basename $file`"
-        affected_files="`grep -R $file_name source/* | cut -d ':' -f1`"
+        affected_files="`grep -R "$file_name" source/* | cut -d ':' -f1`"
+        files="$(echo -e "${files}\n${affected_files}")"
+    fi
+done
+
+# If a file is in examples, add the places where it is referenced to $files
+for file in $files ; do
+    if `echo "$file" | egrep -i '\/examples\/.*$' > /dev/null` ; then
+        file_name="`basename $file`"
+        affected_files="`egrep -R "\.\.\s+literalinclude::\s+examples(\/.*)?\/$file_name" source/* | cut -d ':' -f1`"
+        files="$(echo -e "${files}\n${affected_files}")"
+    fi
+done
+
+# If a file is in common, add the places where it is referenced to $files
+for file in $files ; do
+    if `echo "$file" | egrep -i '\/common\/.*\.rst$' > /dev/null` ; then
+        file_name="`basename $file`"
+        affected_files="`egrep -R "\.\.\s+include::\s+common(\/.*)?\/$file_name" source/* | cut -d ':' -f1`"
         files="$(echo -e "${files}\n${affected_files}")"
     fi
 done
