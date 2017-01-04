@@ -14,7 +14,7 @@ show you how to accomplish this yourself.
 
 This guide assumes that you are comfortable working with SSH, and some
 command line utilities such as `dd <http://man7.org/linux/man-pages/man1/dd.1.html>`_
-and `glance <http://docs.openstack.org/developer/python-glanceclient/man/glance.html>`_.
+and `openstack <http://docs.openstack.org/developer/python-openstackclient/man/openstack.html>`_.
 
 Things To Keep in Mind
 ~~~~~~~~~~~~~~~~~~~~~~
@@ -95,9 +95,8 @@ instance ephemeral, since we won't be planning to keep it.
 
     [root@server]# apt-get install python-dev python-pip
     [root@server]# pip install python-openstackclient
-    [root@server]# pip install python-glanceclient
 
-After this, run "glance help" and check for any other modules that it says are
+After this, run "openstack help" and check for any other modules that it says are
 missing.  Install them with:
 
 .. code-block:: console
@@ -124,7 +123,7 @@ in the destination cluster.
 
 .. code-block:: console
 
-    [root@server]# glance image-list
+    [root@server]# openstack image list
 
 4.  Delete the instance that you wish to move, freeing up its volume to be
 attached to the above newly created instance.
@@ -143,15 +142,15 @@ the usual names for it, until you find the volume.
 One of those should match the size of the volume you are trying to move.  Make
 note of the drive letter (the /dev/vdX part).
 
-7.  Now we will copy the data to glance, using dd and piping it directly.
+7.  Now we will copy the data to the glance image service, using dd and piping it directly.
 Don't forget to change the drive letter in the example to the one you found
 above, and change any text in all CAPS to suit your taste.
 
 .. code-block:: console
 
-    [root@server]# dd if=/dev/vdX | glance --os-image-api-version 2 \
-        image-create \ --name "INSTANCENAME" --is-public false --disk-format \
-        raw --container-format bare
+    [root@server]# dd if=/dev/vdX | openstack image create \
+        --private --container-format bare \
+        --disk-format raw "INSTANCENAME"
 
 8.  Wait while this runs, and if successful it should output the info about the
 new image that was created.
@@ -175,9 +174,8 @@ servers, etc, leaving hopefully just default system tools and sshd running.
 
     [root@server]# apt-get install python-dev python-pip
     [root@server]# pip install python-openstackclient
-    [root@server]# pip install python-glanceclient
 
-After this, run "glance help" and check for any other modules that it says are
+After this, run "openstack help" and check for any other modules that it says are
 missing.  Install them with:
 
 .. code-block:: console
@@ -204,19 +202,19 @@ in the destination cluster.
 
 .. code-block:: console
 
-    [root@server]# glance image-list
+    [root@server]# openstack image list
 
 4.  Determine the drive letter by examining the output of "df -h" for the root
 (/) filesystem.  Generally this will be /dev/vda1.
 
-5.  Now we will copy the data to glance, using dd and piping it directly.
+5.  Now we will copy the data to the glance image service, using dd and piping it directly.
 Change any text in all CAPS to suit your taste.
 
 .. code-block:: console
 
-    [root@server]# dd if=/dev/vda | glance --os-image-api-version 1 image-create \
-        --name "INSTANCENAME" --is-public false --disk-format raw \
-        --container-format bare
+    [root@server]# dd if=/dev/vda | openstack image create \
+        --private --container-format bare \
+        --disk-format raw "INSTANCENAME"
 
 6.  Wait while this runs, and if successful it should output the info about the
 new image that was created.
