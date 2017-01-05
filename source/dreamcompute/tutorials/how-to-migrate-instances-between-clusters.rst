@@ -82,12 +82,12 @@ As an overview, here are the components involved in accomplishing this task.
        | Volume To Copy |
        +----------------+
 
-Let's go! 
+Let's go!
 
 1.  Create a new instance, using the smallest available flavor, to be used as
 a copy machine.  This guide will be using Ubuntu 14.04, but the commands should
 be similar on any Ubuntu system.  It is also recommended that you make the
-instance ephemeral, since it will not be needed after the migration is complete. 
+instance ephemeral, since it will not be needed after the migration is complete.
 
 2.  Install the needed software to access the glance image service on this new instance.
 
@@ -169,7 +169,7 @@ situations however and so is included here.
 1.  Shut down as many services as possible, such as database servers, http
 servers, etc, ideally leaving only default system tools and sshd running.
 
-2.  Install the needed software to access the glance imaging service on 
+2.  Install the needed software to access the glance imaging service on
 this new instance.
 
 .. code-block:: console
@@ -224,7 +224,7 @@ new image that was created.
 7.  You are now ready to go to the DESTINATION cluster to start up a new
 instance and to select the image that was just uploaded.  If the data is
 meant to be persistent, it is best to use the "Boot from image (creates
-a new volume) option. 
+a new volume) option.
 
 .. meta::
     :labels: glance migrate image
