@@ -87,4 +87,4 @@ jump host called “jump”. Change $username to the default user for your image
 .. _how to upload SSH keys in DreamCompute: 214843617-How-to-upload-an-SSH-key-via-the-web-UI
 
 .. meta::
-    :labels: ssh nova windows mac linux desktop dashboard
+    :labels: nova windows mac linux desktop dashboard
