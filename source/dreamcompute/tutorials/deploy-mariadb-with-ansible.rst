@@ -13,7 +13,7 @@ security configurations.
 .. Note::
 
    Read `how to install and configure Ansible for DreamCompute
-   <925908-How-to-launch-a-DreamCompute-server-with-Ansible>`_ if you
+   <218925908-How-to-launch-a-DreamCompute-server-with-Ansible>`_ if you
    have not used Ansible before.
 
 Prepare the playbook to launch a new DreamCompute cloud server
