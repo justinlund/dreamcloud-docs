@@ -70,4 +70,4 @@ wouldn’t be difficult to configure Cron to automatically backup a directory on
 your computer.
 
 .. meta::
-    :labels: bash linux duplicity backup
+    :labels: bash linux duplicity
