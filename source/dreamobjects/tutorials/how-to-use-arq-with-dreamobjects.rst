@@ -156,4 +156,4 @@ Arq is now configured to backup your data.
 .. _DreamObjects Keys: 215986357-What-are-Keys-in-DreamObjects-and-How-Do-You-Use-Them-
 
 .. meta::
-    :labels: arq windows mac backup
+    :labels: arq windows mac
