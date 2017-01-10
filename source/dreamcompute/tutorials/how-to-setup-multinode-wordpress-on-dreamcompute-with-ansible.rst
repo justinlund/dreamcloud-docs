@@ -107,4 +107,4 @@ The "group_vars/all.yml" file also has some configuration:
   and store it in /tmp/sqlpassword
 
 .. meta::
-    :labels: ansible wordpress apache mysql
+    :labels: ansible apache mysql
