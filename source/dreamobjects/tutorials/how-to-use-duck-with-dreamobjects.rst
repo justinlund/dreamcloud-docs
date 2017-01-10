@@ -108,4 +108,4 @@ Helpful commands
     get a forbidden error.*
 
 .. meta::
-    :labels: duck linux mac windows backup
+    :labels: duck linux mac windows
