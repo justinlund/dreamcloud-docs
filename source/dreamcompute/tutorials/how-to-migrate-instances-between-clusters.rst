@@ -1,4 +1,4 @@
-======================================================
+  ======================================================
 How to migrate instances between DreamCompute clusters
 ======================================================
 
@@ -57,7 +57,7 @@ Here are a few things to keep in mind and plan while doing a migration.
   have their data accessed by another instance when shut off.  These instances can only be
   migrated while running, so it is best to shut down as many services as possible (like
   MySQL, Apache, and so on) to limit the possibility of corruption.  Please see the last
-  section below on how to migrate running instances.
+  section below for `instructions on migrating running instances`_.
 
 Migrate a volume-backed instance using the OpenStack CLI
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -65,8 +65,8 @@ Migrate a volume-backed instance using the OpenStack CLI
 For this type of move, it is necessary to delete the instance so that it leaves
 behind the volume to migrate.  This method requires that you did not check
 the "delete on terminate" box when you created your instance.  If you did,
-please skip to the last section on migrating running instances.  If you
-continue you may permanently destroy and lose your data.
+please skip to the last section for `instructions on migrating running instances`_.
+If you continue you may permanently destroy and lose your data.
 
 As an overview, here are the components involved in accomplishing this task.
 
@@ -166,11 +166,12 @@ Migrate an ephemeral instance using the OpenStack CLI
 This type of migration is not recommended.  It may be necessary in some
 situations however and so is included here.
 
-1.  Shut down as many services as possible, such as database servers, http
-servers, etc, ideally leaving only default system tools and sshd running.
+1.  Shut down as many services on the instance as possible, such as
+database servers, http servers, etc, ideally leaving only default system
+tools and sshd running.
 
 2.  Install the needed software to access the glance imaging service on
-this new instance.
+the instance.
 
 .. code-block:: console
 
@@ -184,11 +185,12 @@ are missing.  Install them with:
 
     [root@server]# pip install MODULENAME
 
-3.  Setup your OpenStack RC file for the DESTINATION cluster on this new
-instance, which can be downloaded from its Access & Security -> API Access menu
-in the dashboard.  Either upload the file to your instance, or copy/paste its
-contents into a file on this instance.  Once you are done, you can run it like
-so.
+3.  Setup your OpenStack RC file for the DESTINATION cluster on the instance.
+This file can be downloaded using its button on the Access & Security -> API
+Access menu in the dashboard.  Either upload the file to your instance, or
+copy/paste its contents into a file on this instance.  Once you are done, you
+can run it like so to setup your root user environment with the necessary
+variables to communciate with the glance image service.
 
 .. code-block:: console
 
@@ -199,8 +201,8 @@ so.
 It will then prompt you to "Please enter your OpenStack Password:"; go
 ahead and do that.
 
-If you run a command like the one below, it should output the current OpenStack
-images in the destination cluster.
+If you run a command like the one below, it should now output the current
+OpenStack images in the DESTINATION cluster.
 
 .. code-block:: console
 
@@ -209,8 +211,8 @@ images in the destination cluster.
 4.  Determine the drive letter by examining the output of "df -h" for the root
 (/) filesystem.  Generally this will be /dev/vda1.
 
-5.  Now use dd to pipe the data from the disk directly into the the glance image service.
-Change any text in all CAPS to suit your taste.
+5.  Now use dd to pipe the data from the disk directly into the the glance image
+service. Change any text in all CAPS to suit your taste.
 
 .. code-block:: console
 
@@ -218,13 +220,15 @@ Change any text in all CAPS to suit your taste.
         --private --container-format bare \
         --disk-format raw "INSTANCENAME"
 
-6.  Wait for the command to finish running. If successful, it should output the info about the
-new image that was created.
+6.  Wait for the command to finish running. If successful, it should output the
+info about the new image that was created.
 
 7.  You are now ready to go to the DESTINATION cluster to start up a new
 instance and to select the image that was just uploaded.  If the data is
 meant to be persistent, it is best to use the "Boot from image (creates
-a new volume) option.
+a new volume)" option.
+
+.. _instructions on migrating running instances: 218501427#migrate-an-ephemeral-instance-using-the-openstack-cli
 
 .. meta::
     :labels: glance migrate image
