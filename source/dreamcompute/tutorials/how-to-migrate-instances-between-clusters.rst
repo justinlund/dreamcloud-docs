@@ -9,7 +9,7 @@ DreamCompute offers multiple clusters (also often called availability zones)
 which are independent OpenStack installations with their own servers, storage,
 and control panel. Some clusters have different features, such as SSD storage
 or different hardware that is useful for a given task. Migrating instances
-and data between clusters is not automated at this time, and this guide 
+and data between clusters is not automated at this time, and this guide
 shows you how to accomplish this yourself.
 
 This guide assumes that you are comfortable working with SSH, and some
@@ -130,7 +130,7 @@ Follow this procedure:
     drop-down box in the 'Actions' column on the right side, and then click 'Edit Attachments'.
 
 9.  On the new instance, check "dmesg" for the drive letter of the new volume. You can also check
-    the usual names for it. The following is an example which should match the size of the volume you 
+    the usual names for it. The following is an example which should match the size of the volume you
     are trying to move. Make note of the drive letter (the /dev/vdX part):
 
 .. code-block:: console
