@@ -16,6 +16,19 @@ DreamHost. If you're ready to dig into some boto code, the
 is a great place to start.  DreamHost's servers already have boto installed so
 you can skip that part in the documentation.
 
+Creating a .boto file
+~~~~~~~~~~~~~~~~~~~~~
+
+Now you have to take your user and secret key and put them into a file named
+‘.boto’ in our users home directory. You can do this with the following
+commands if you substitute your own keys:
+
+.. code-block:: bash
+
+    echo “[Credentials]” >> ~/.boto
+    echo “aws_access_key_id = 98F3n8qUtWEJ6ZdBYyQy” >> ~/.boto
+    echo “aws_secret_access_key = p5kptXKQrsQtTNJTYtG7emGYooXkN6Kaza1OV-_s” >> ~/.boto
+
 Example Scripts
 ~~~~~~~~~~~~~~~
 

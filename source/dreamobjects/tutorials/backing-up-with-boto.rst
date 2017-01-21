@@ -73,7 +73,7 @@ First,  define some variables we know we'll need later:
 
     tmp_dir = 'tmp'
     backup_bucket = 'website-backup'
-    target_dir = 'idallas.com'
+    target_dir = 'example.com'
 
 Here's what they will all be used for:
 * *tmp_dir* defines where we will temporarily store our backup file.
@@ -137,7 +137,7 @@ the backup file we'll be creating.
   Thursday is 4, etc.  We put that number into the "day_number"
   variable.
 * Next, we define the file name for our backup file to be
-  something like "idallas.com.backup.4.tar.gz".  That's what
+  something like "example.com.backup.4.tar.gz".  That's what
   that backup_filename line works out to (on Thursdays).
 * Then, we define the full path to the backup file.
 
@@ -241,6 +241,52 @@ DreamObjects daily, but what if you want to do more
 with those backups?  In a future post, I'll talk about
 how to list your available backups and choose one to
 restore from.
+
+The Script
+~~~~~~~~~~
+
+.. code-block:: python
+
+    #!/usr/bin/python
+
+    import tarfile
+    import datetime
+    import os
+
+    home_dir = os.getenv('HOME')
+    os.chdir(home_dir)
+
+    tmp_dir = 'tmp'
+    backup_bucket = 'website-backup'
+    target_dir = 'example.com'
+
+    if not os.path.isdir(tmp_dir):
+        os.makedirs(tmp_dir)
+
+    tar = tarfile.open(backup_filepath, "w:gz")
+    tar.add(target_dir)
+    tar.close()
+
+    day_number = datetime.datetime.today().weekday()
+
+    backup_filename = "{0}.backup.{1}.tar.gz".format(
+        target_dir,
+        str(day_number),
+        )
+    backup_filepath = os.path.join(
+        home_dir,
+        tmp_dir,
+        backup_filename,
+        )
+    connection = boto.connect_s3(
+        host='objects-us-west-1.dream.io',
+        )
+
+    bucket = connection.get_bucket(backup_bucket)
+    key = bucket.new_key(backup_filename)
+    key.set_contents_from_file(open(backup_filepath, 'rb'))
+
+    os.remove(backup_filepath)
 
 .. _DreamObjects User Tutorial: 215986327-What-are-Users-in-DreamObjects-and-How-Do-You-Use-Them-
 .. _DreamObjects Bucket Tutorial: 215321178-What-are-Buckets-in-DreamObjects-and-How-Do-You-Use-Them-
