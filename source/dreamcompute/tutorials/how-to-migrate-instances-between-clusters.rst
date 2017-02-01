@@ -185,8 +185,8 @@ situations however and so it's included here.
     This file can be downloaded using its button on the Access & Security -> API
     Access menu in the dashboard. Either upload the file to your instance or
     copy/paste its contents into a file on this instance. Once you are done, you
-    can run it like the following to setu p your root user environment with the necessary
-    variables to communciate with the glance image service:
+    can run it like the following to set up your root user environment with the necessary
+    variables to communicate with the glance image service:
 
 .. code-block:: console
 
@@ -206,7 +206,7 @@ situations however and so it's included here.
 7.  Determine the drive letter by examining the output of "df -h" for the root
     (/) filesystem. Generally this is /dev/vda1.
 
-8.  Use dd to pipe the data from the disk directly into the the glance image
+8.  Use dd to pipe the data from the disk directly into the glance image
     service. Change any text in all CAPS to suit your taste.
 
 .. code-block:: console
