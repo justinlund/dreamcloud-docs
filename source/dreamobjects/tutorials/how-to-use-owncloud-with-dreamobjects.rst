@@ -24,6 +24,8 @@ How to configure ownCloud to work with DreamObjects
 Before you can begin using ownCloud with DreamObjects, you must install
 ownCloud on your DreamHost account by following this step-by-step guide.
 
+* `How to install ownCloud`_
+
 You also must enable DreamObjects on your DreamHost account. If you haven't
 enabled DreamObjects nor created the required keys and buckets, please review
 the following articles:
@@ -179,6 +181,8 @@ PHP settings to set the desired upload size, execution time, and increased PHP
 memory usage.
 
 .. _Creating DreamObjects Keys: 215986357-What-are-Keys-in-DreamObjects-and-How-Do-You-Use-Them-
+
+.. _How to install ownCloud: 216472487-How-to-install-ownCloud
 
 .. _Creating a DreamObjects User: 215986327-What-are-Users-in-DreamObjects-and-How-Do-You-Use-Them-
 
