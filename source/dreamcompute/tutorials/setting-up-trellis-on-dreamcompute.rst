@@ -18,7 +18,7 @@ Modern LEMP Stack
 Trellis is a set of Ansible playbooks that help you setup a full local,
 staging and development environment for your WordPress project. With it you
 will have a WordPress ready server running locally or remotely (intention
-in this tutorial) with:
+of this tutorial) with:
 
 * Nginx
 * MariaDB (MySQL drop-in replacement)
@@ -286,8 +286,8 @@ Hosts
 *****
 
 Now under the trellis folder open hosts/production. That is a file where
-you add your host details for making the real connection. If you do forget
-it you will net be able to connect and sometimes not get any errors at all
+you add your host details for making the real connection. If you forget
+it you will not be able to connect and sometimes not get any errors at all
 . Here is an example:
 
 .. code::
