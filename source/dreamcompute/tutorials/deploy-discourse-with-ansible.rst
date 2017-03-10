@@ -26,12 +26,12 @@ the playbook to use. Do this by running the following:
     [user@localhost]$ git clone https://github.com/squidboylan/discourse-dreamcompute.git
 
 You should now see a discourse-dreamcompute directory, this is what you will
-use to deploy discourse, but first you have to do some configuration.
+use to deploy Discourse, but first you have to do some configuration.
 
 Configuration
 ~~~~~~~~~~~~~
 
-The ansible playbook has an example configuration file, copy this to the actual
+The Ansible playbook has an example configuration file, copy this to the actual
 configuration file by running the following:
 
 .. code-block:: console
