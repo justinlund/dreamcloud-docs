@@ -27,21 +27,21 @@ the playbook to use. Do this by running the following:
 
     [user@localhost]$ git clone https://github.com/squidboylan/discourse-dreamcompute.git
 
-You should now see a discourse-dreamcompute directory, this is what you will
-use to deploy Discourse, but first you have to do some configuration.
+You should now see a discourse-dreamcompute directory, which is what you will
+use to deploy Discourse, but first you must make some configurations.
 
 Configuration
 ~~~~~~~~~~~~~
 
-The Ansible playbook has an example configuration file, copy this to the actual
+The Ansible playbook has an example configuration file. Copy this to the actual
 configuration file by running the following:
 
 .. code-block:: console
 
     [user@localhost]$ cp vars/dreamcompute.yml.example vars/dreamcompute.yml
 
-Now open up the ``vars/dreamcompute.yml`` file in your favorite editor, there
-are a few changes you need to make.
+Open the ``vars/dreamcompute.yml`` file in your favorite editor, and then make the following
+changes:
 
 * Change auth.cloud to be the name of your cloud configured in your clouds.yml
   file
@@ -72,14 +72,14 @@ Now you are ready to run your playbook. Do this by running the following:
 
     [user@localhost]$ ansible-playbook site.yml
 
-This will take a while to run, sometimes up to 20 minutes.
+This takes a while to run, and can take up to 20 minutes.
 
 The last thing to do is create a DNS record for your new server. Do this by
 following the `documentation on creating DNS records.
 <215414867-How-do-I-add-custom-DNS-records->`_
 
 If you have
-configured everything correctly you can visit the new site in a browser and
+configured everything correctly,  visit the new site in a browser and
 finish the installation.
 
 .. meta::
