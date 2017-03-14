@@ -5,18 +5,11 @@ How to fix an unreachable DreamCompute Instance
 Introduction
 ~~~~~~~~~~~~
 
-DreamCompute is an unmanaged public cloud offering from DreamHost, powered
-by OpenStack, where customers can run the services they need.  Being
-unmanaged means that customers take on the role of system administrator.  On
-occasion something can go wrong, and an instance needs attention.  Should an
-instance have an issue on your watch, here are some basics to look at to get
-the instance back up and running.
-
-This guide is meant to be a checklist of common issues that can occur so some
-debugging can be done before contacting support.  Please keep in mind that
-DreamHost support has no access to login to your instances, or view your data
-so any error messages, logs or other specific details of the issue will help
-resolve the issue, or point you in the right direction to fix the issue faster.
+This guide is a checklist of common issues that can be investigated
+before contacting support.  Please keep in mind that DreamHost support has no
+access to login to your instances, or view your data so any error messages,
+logs or other details of the issue will help resolve the issue, or point you
+in the right direction to fix the issue faster.
 
 Ensure the instance is running
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -173,4 +166,4 @@ configurations, please `contact support <https://panel.dreamhost.com/index.cgi?t
 with all available info and we will get back to you wish our findings.
 
 .. meta::
-    :labels: boot error
+    :labels: dreamcompute

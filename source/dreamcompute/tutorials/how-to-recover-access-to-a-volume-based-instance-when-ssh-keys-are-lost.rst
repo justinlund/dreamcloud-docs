@@ -1,38 +1,13 @@
-=============================================================
-How to recover a DreamCompute Instance when SSH keys are lost
-=============================================================
+=======================================================================
+How to recover access to a volume-based instance when ssh keys are lost
+=======================================================================
 
 Introduction
 ~~~~~~~~~~~~
 
 DreamCompute instances are created with a specified SSH key which is used for
-gaining initial access.  From that point on, customers are able to become root
-and add users, set passwords (and turn on password authentication) and set
-more SSH keys if desired.  Occasionally an SSH key may go missing, or a laptop
-dies, and one may get locked out.  This guide covers some basic steps to
+gaining initial access.  This guide covers some basic steps to attempt to
 retrive the data, and gain access again if desired.
-
-Preventing future lockouts
-~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-Here are a couple recommendations to prevent this issue happening in the
-future.
-
-* **Set a root password**
-
-  By default the ssh configuration file (/etc/ssh/sshd_config) does not allow
-  for password authentication, and doesn't allow root login either, so it can
-  be safe and advised to set a strong root password.  Should one become locked
-  out again, using the "Console" in the DreamCompute dashboard allows root
-  login.  From there a new key can be set, or other changes made.
-
-* **Create your own users**
-
-  It is not required to use the default usernames provided by the operating
-  system.  Once logged in with the default user, additional users can be
-  created and each of those given different ssh keys for other users.  The
-  default user and its SSH key can be a backup access option, rather than
-  the only login option.
 
 Things to keep in mind
 ~~~~~~~~~~~~~~~~~~~~~~
@@ -60,31 +35,7 @@ Things to keep in mind
   room.  Once this process is complete, the snapshot can be deleted and the
   quota lowered.
 
-Regain access to ephemeral instance
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-1.  Navigate to the DreamCompute dashboard `Instances menu <https://iad2.dreamcompute.com/project/instances/>`_.
-
-2.  Click on the right-side menu and the action "Create Snapshot" and give the
-    snapshot a name.  This creates an operating system (glance) image of your
-    running instance.  Please wait for this process to complete, however it is
-    generally quick.
-
-3.  Click on the "Launch Instance" button to create a new instance.  For the
-    "Instance boot source", select "Boot from image" and then the name of the
-    snapshot created in the previous step.  On the "Access & Security" tab,
-    select the Key Pair to be injected for the default user.  If
-    there are no valid keys available, click the "+" symbol next to the drop-
-    down to create a new one.  Click the "Launch" button on the bottom right.
-
-4.  Once the new instance has booted, attempt to login to it with the
-    `default username <https://help.dreamhost.com/hc/en-us/articles/228377408-How-to-find-the-default-user-of-an-image>`_
-    and the new IP address.
-
-5.  If all looks correct and access has been restored, the original instance
-    can now be deleted.
-
-Regain access to volume booted instance
+Regain access to volume-based instance
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 1.  Navigate to the DreamCompute dashboard `Instances menu <https://iad2.dreamcompute.com/project/instances/>`_.
@@ -116,4 +67,4 @@ Regain access to volume booted instance
     in step #2 can be deleted.
 
 .. meta::
-    :labels: broken access locked
+    :labels: dreamcompute
