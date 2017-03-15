@@ -40,23 +40,10 @@ Configuring AWS CLI
 
 This client has features that apply to many services offered by Amazon, but
 for this tutorial we only are concerned with using the S3 functionality in
-combination with DreamObjects.  To use the S3 features, you must ensure a few
-things:
-
-1. Newer versions of AWS CLI may have a signature_version variable set that is
-   incompatible with DreamObjects.  Setting the value to empty if one exists
-   will ensure compatibility.  You can check and change this value with these
-   commands.
-
-.. code-block:: console
-
-    [user@localhost]$ aws configure get default.s3.signature_version
-    s3v4
-    [user@localhost]$ aws configure set default.s3.signature_version ""
-
-2. Run the following command to input your access and secret keys for AWS CLI
-   to store them encrypted for you.  Accept the default region and output
-   format by hitting enter.
+combination with DreamObjects. To use the S3 features, you must ensure a few
+things. Run the following command to input your access and secret keys for AWS
+CLI to store them encrypted for you. Accept the default region and output
+format by hitting enter.
 
 .. code-block:: console
 
