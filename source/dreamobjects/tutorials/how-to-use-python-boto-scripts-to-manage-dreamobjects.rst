@@ -151,6 +151,8 @@ boto script below.
 Additional Examples
 ~~~~~~~~~~~~~~~~~~~
 
+`How to remove multi-part (MPU) upload data and free up bucket space <230055888>`_
+
 For more examples of Python code using DreamObjects, please see
 `Sample Python Code Using DreamObjects <https://help.dreamhost.com/hc/en-us/articles/214948118-Sample-Python-Code-Using-DreamObjects-S3-compatible-API-And-Boto>`_.
 
