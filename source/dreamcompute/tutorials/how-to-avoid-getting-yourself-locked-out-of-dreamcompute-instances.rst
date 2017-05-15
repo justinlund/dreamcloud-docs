@@ -1,5 +1,5 @@
 ==================================================================
-how to avoid getting yourself locked out of DreamCompute instances
+How to avoid getting yourself locked out of DreamCompute instances
 ==================================================================
 
 Introduction
